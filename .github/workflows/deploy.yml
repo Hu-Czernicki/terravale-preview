@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  pages: write
 
 concurrency:
   group: terravale-pages
@@ -52,6 +53,8 @@ jobs:
           print("Prepared", len(names), "static files for GitHub Pages")
           PY
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
